@@ -170,7 +170,43 @@ On peut donc en déduire que changer les droits d'un dossier à laquelle on a ac
  
 7- 
 
+8-
 
+9-
+
+10- On définit un umask très restrictif:
+```
+umask 077
+```
+11- On définit un umask très permissif:
+```
+umask 022
+```
+12- On définit un umask équilibré:
+```
+umask 037
+```
+13-Pour : chmod u=rx,g=wx,o=r fic, la transcription en notations octale est:
+```
+chmod 534 fic
+```
+Pour :chmod uo+w,g-rx fic en sachant que les droits initiaux de fic sont r--r-x---, la transcription en notations octale est:
+```
+chmod 620 fic
+```
+Pour : chmod 653 fic en sachant que les droits initiaux de fic sont 711, la transcription en notations octale est:
+```
+chmod u-x,g+r,o+w fic
+```
+Pour : chmod u+x,g=w,o-r fic en sachant que les droits initiaux de fic sont r--r-x---, la transcription en notations octale est:
+```
+chmod 520 fic
+```
+14- Pour afficher les droits sur le programme passwd on utilise cette commande:
+```
+ls -l passwd
+```
+On remarque que tout le monde a le droit de lecture dessus mais seul l'utilisateur a le droit d'écriture. Aussi, personne n'a le droit d'execution.
 
 
 
